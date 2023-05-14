@@ -17,7 +17,7 @@ const protect = asyncHandler(async (req, res, next) => {
       console.log(error);
       res
         .status(401)
-        .json({ msg: `You are not authorized, please contact support.` });
+        .json({ msg: `You are not authorized, please contact support.`, contact: `upsideelectionicsmiddletn@gmail.com` });
     }
     if (!token) {
       res

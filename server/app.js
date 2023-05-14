@@ -17,7 +17,7 @@ conn();
 app.use(express.json()); // PARSE JSON
 app.use(express.urlencoded({ extended: false })); // PARSE URLENCODED
 app.use(errHandler); // HANDLE ERROR
-app.use("/api/users", userRoutes);
+app.use("/api/user", userRoutes);
 
 //CONNECTION
 app.listen(PORT, (err) => {

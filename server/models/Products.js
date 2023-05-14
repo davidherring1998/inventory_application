@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const { schema } = require("./User");
+const { Decimal128 } = require("mongodb");
 const productSchema = mongoose.Schema(
   {
     category: {
@@ -8,7 +9,7 @@ const productSchema = mongoose.Schema(
       unique: true,
     },
     subcategory: {
-      type: String,
+      type: [mongoose.Schema.Types.Mixed],
       required: [true, "Please enter a valid subcategory input."],
       unique: true,
     },
@@ -22,8 +23,13 @@ const productSchema = mongoose.Schema(
       required: [true, `Please enter an amount!`],
       min: 0,
     },
+    price: {
+      type: mongoose.Schema.Types.Decimal128,
+      required: [true, `Please enter an pice amount!`],
+      min: 0,
+    },
     color: {
-      type: String,
+      type: [String],
     },
     description: {
       type: String,
@@ -36,6 +42,8 @@ const productSchema = mongoose.Schema(
     },
     weight: {
       type: Number,
+      min: 0,
+      max: 1000,
     },
   },
   { timestamps: true }
