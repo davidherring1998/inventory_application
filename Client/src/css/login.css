@@ -1,12 +1,16 @@
+.header {
+  text-align: center;
+  margin-top: 5%;
+}
 .form-container {
   border: 1px solid black;
   border-radius: 10px;
   width: 80%;
   margin: auto;
-  margin-top: 30%;
+  margin-top: 15%;
   padding: 40px;
 }
 
 .submit-btn {
-    width: 100%;
+  width: 100%;
 }
