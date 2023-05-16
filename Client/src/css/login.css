@@ -1,0 +1,12 @@
+.form-container {
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 80%;
+  margin: auto;
+  margin-top: 30%;
+  padding: 40px;
+}
+
+.submit-btn {
+    width: 100%;
+}
