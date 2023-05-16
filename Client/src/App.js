@@ -8,13 +8,22 @@ import Header from "./components/Header";
 import Login from "./pages/login";
 import Footer from "./components/Footer";
 import Dashboard from "./pages/dashboard";
+import Inventory from "./pages/inventory";
 
 function App() {
   return (
     <>
-      <Header />
-      <Login />
-      <Footer />
+      <Router>
+        <div className="">
+          <Header />
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/inventory" element={<Inventory />} />
+          </Routes>
+          <Footer />
+        </div>
+      </Router>
       <ToastContainer />
     </>
   );

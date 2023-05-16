@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { loginSlice, reset } from "../features/auth/authSlice";
+import { login, reset } from "../features/auth/authSlice";
 
 import { toast } from "react-toastify";
 import Spinner from "../components/Spinner";
@@ -17,6 +17,47 @@ export default function Login() {
     password: "",
   });
 
+  const { username, password } = formData;
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  );
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(message);
+    }
+    if (isSuccess) {
+      navigate("/");
+    }
+    dispatch(reset());
+  }, [user, isError, isSuccess, message, navigate, dispatch]);
+
+  const onChange = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    const userData = {
+      username,
+      password,
+    };
+
+    dispatch(login(userData));
+
+    if (isLoading) {
+      return <Spinner />;
+    }
+  };
+
   return (
     <>
       <div className="header">
@@ -25,16 +66,30 @@ export default function Login() {
         </h1>
       </div>
       <div className="form-container">
-        <Form>
+        <Form onSubmit={onSubmit}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Username</Form.Label>
-            <Form.Control type="username" placeholder="Enter username" />
+            <Form.Control
+              type="text"
+              placeholder="Enter username"
+              className="username-input"
+              name="username"
+              value={username}
+              onChange={onChange}
+            />
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
+            <Form.Control
+              type="password"
+              placeholder="Enter password"
+              className="password-input"
+              name="password"
+              value={password}
+              onChange={onChange}
+            />
           </Form.Group>
           <Button variant="primary" type="submit" className="submit-btn">
             Submit
