@@ -3,9 +3,9 @@
   color: red;
   font: 20px;
 }
-
-/* .nav-link {
-  color: red;
-  border: 1px solid black;
-  background-color: blue;
-} */
+.brand {
+  color: white;
+}
+.login-header {
+  color: black;
+}

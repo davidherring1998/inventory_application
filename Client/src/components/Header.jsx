@@ -29,37 +29,22 @@ function Header() {
   return (
     <>
       {user ? (
-        // <Navbar bg="dark" variant="dark">
-        //   <Container className="nav-container">
-        //     <Navbar.Brand href="#home">Dashboard</Navbar.Brand>
-        //     <Nav className="me-auto">
-        //       <Nav.Link href="#pricing">
-        //         <span className="nav-link">Inventory</span>
-        //       </Nav.Link>
-        //       <Nav.Link href="#features">
-        //         <span className="nav-link">#</span>
-        //       </Nav.Link>
-        //       <Nav.Link>
-        //         <span className="nav-link"> # </span>
-        //       </Nav.Link>
-        //       <Nav.Link onClick={onLogout}>
-        //         <span className="nav-link">Logout</span>
-        //       </Nav.Link>
-        //     </Nav>
-        //   </Container>
-        // </Navbar>
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="light" expand="lg" className="nav">
           <Container>
-            <Navbar.Brand href="#home">Little of Everything Shop</Navbar.Brand>
+            <Navbar.Brand href="#home" className="brand">
+              Little of Everything Shop
+            </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
                 <Nav.Link onClick={onHome}>Home</Nav.Link>
-                <Nav.Link onClick={onInventory}>Inventory</Nav.Link>
+                <Nav.Link>blank</Nav.Link>
                 <NavDropdown title="More" id="basic-nav-dropdown">
-                  <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.1" onClick={onInventory}>
+                    Inventory
+                  </NavDropdown.Item>
                   <NavDropdown.Item href="#action/3.2">
-                    Another action
+                    Add product
                   </NavDropdown.Item>
                   <NavDropdown.Item href="#action/3.3">
                     Something
@@ -74,11 +59,10 @@ function Header() {
           </Container>
         </Navbar>
       ) : (
-        <Navbar bg="dark" variant="dark">
+        <Navbar bg="light" variant="dark">
           <Container>
-            {/* <Link to="/login"> */}
-            <Navbar.Brand id="login-link" onClick={onLogout}>
-              Little of Everything Shop
+            <Navbar.Brand onClick={onLogout}>
+              <span className="login-header">Little of Everything Shop</span>
             </Navbar.Brand>
             {/* </Link> */}
             <Nav className="me-auto"></Nav>

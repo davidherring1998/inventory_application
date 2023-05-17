@@ -1,0 +1,17 @@
+.inventory-header {
+  margin-bottom: 5%;
+}
+.product-card {
+  margin-top: 10%;
+}
+.card-header {
+  font-weight: 900;
+}
+.card-body {
+  text-align: left;
+  font-family: monospace;
+
+}
+.bold {
+  font-weight: 700;
+}

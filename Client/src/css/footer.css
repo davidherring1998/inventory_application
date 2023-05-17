@@ -1,5 +1,5 @@
 .footer {
-  position: absolute;
+  position: relative;
   left: 0;
   bottom: 0;
   margin: auto;
@@ -8,22 +8,21 @@
   padding-top: 5px;
   width: 100%;
   border-top: 1px solid black;
-  background-color: #343a40;
+  background-color: #f8f9fa;
 }
 
 .footer p {
   text-align: center;
   font-size: 0.8rem;
   margin-top: 10px;
-  margin-bottom: -.1px;
-  color: white;
+  margin-bottom: -0.1px;
+  color: black;
 }
 
 .icons {
   font-size: 1.2rem;
   text-align: center;
   padding-bottom: 8px;
-
 }
 .mid-icon {
   margin-left: 10px;
